@@ -22,14 +22,13 @@ export default async function LoginPage() {
         </div>
 
         <Card>
-          <CardHeader title="登录 TeamDesk" description="使用邮箱登录，或注册一个新账号" />
+          <CardHeader title="登录 XXXXX" description="使用邮箱登录，或注册一个新账号" />
           <CardContent>
             <AuthForm />
           </CardContent>
         </Card>
 
         <p className="text-center text-xs text-slate-400">
-          本地演示账号：admin@teamdesk.dev / teamdesk-admin（执行 npm run db:seed 后可用）
         </p>
       </div>
     </div>

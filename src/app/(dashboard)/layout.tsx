@@ -28,7 +28,7 @@ export default async function DashboardLayout({ children }: { children: ReactNod
           <span className="flex h-7 w-7 items-center justify-center rounded-md bg-blue-600 text-sm font-bold text-white">
             T
           </span>
-          <span className="text-base font-semibold text-slate-900">TeamDesk</span>
+          <span className="text-base font-semibold text-slate-900">POC演示</span>
         </div>
         <nav className="flex flex-1 flex-col gap-1 p-3">
           {NAV_ITEMS.map((item) => (
@@ -42,7 +42,7 @@ export default async function DashboardLayout({ children }: { children: ReactNod
           ))}
         </nav>
         <div className="border-t border-slate-200 px-5 py-3 text-xs text-slate-400">
-          工单协作 · 本地演示环境
+          工单协作
         </div>
       </aside>
 

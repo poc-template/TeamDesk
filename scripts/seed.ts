@@ -20,7 +20,7 @@ function main(): void {
   console.log(
     `写入完成：用户 ${result.users} 个、标签 ${result.tags} 个、工单 ${result.tickets} 条、评论 ${result.comments} 条`,
   );
-  console.log("默认账号：admin@teamdesk.dev / teamdesk-admin（仅本地演示使用）");
+  console.log("默认账号：admin@test.dev / boc-admin");
 
   db.close();
 }

@@ -58,8 +58,12 @@ export default async function TicketsPage({ searchParams }: PageProps) {
   };
 
   const result = services.tickets.list(query);
+  const resultRemote = await services.remoteTickets.list(query);
   const users = services.users.list();
   const tags = services.tags.list();
+
+  console.log("Local tickets:", result);
+  console.log("Remote tickets:", resultRemote);
 
   return (
     <div className="space-y-5">
