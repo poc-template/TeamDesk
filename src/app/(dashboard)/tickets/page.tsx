@@ -4,7 +4,7 @@ import { TicketTable } from "@/components/tickets/ticket-table";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Pagination } from "@/components/ui/pagination";
 import { TICKET_PRIORITIES, TICKET_STATUSES } from "@/lib/domain/types";
-import type { TicketPriority, TicketQuery, TicketStatus } from "@/lib/domain/types";
+import type { TicketPriority, TicketQuery, TicketStatus, EntityQuery, EntityDetail, Paginated } from "@/lib/domain/types";
 import { getServices } from "@/lib/services/container";
 
 export const dynamic = "force-dynamic";
@@ -58,12 +58,19 @@ export default async function TicketsPage({ searchParams }: PageProps) {
   };
 
   const result = services.tickets.list(query);
-  const resultRemote = await services.remoteTickets.list(query);
+  // let resultRemote: Paginated<EntityDetail> | null = null;
+  // try {
+  //   const entityQuery: EntityQuery = { page: query.page, pageSize: query.pageSize };
+  //   const entityResult = await services.remoteEntity.getEntityList(entityQuery);
+  //   resultRemote = entityResult.paginated;
+  // } catch (error) {
+  //   console.warn("远程实体接口调用失败，已降级到本地数据:", error);
+  // }
   const users = services.users.list();
   const tags = services.tags.list();
 
   console.log("Local tickets:", result);
-  console.log("Remote tickets:", resultRemote);
+  // console.log("Remote entities:", resultRemote);
 
   return (
     <div className="space-y-5">

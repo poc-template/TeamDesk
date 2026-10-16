@@ -5,10 +5,11 @@ import { LogoutButton } from "@/components/auth/logout-button";
 import { getCurrentUser } from "@/lib/auth/current-user";
 
 const NAV_ITEMS = [
-  { href: "/tickets", label: "工单列表" },
-  { href: "/board", label: "看板" },
-  { href: "/stats", label: "统计" },
-  { href: "/tickets/new", label: "新建工单" },
+  // { href: "/tickets", label: "工单列表" },
+  // { href: "/board", label: "看板" },
+  // { href: "/stats", label: "统计" },
+  // { href: "/tickets/new", label: "新建工单" },
+  { href: "/pending-review", label: "待审查一览" },
 ];
 
 /**
@@ -26,9 +27,9 @@ export default async function DashboardLayout({ children }: { children: ReactNod
       <aside className="hidden w-56 shrink-0 border-r border-slate-200 bg-white md:flex md:flex-col">
         <div className="flex h-14 items-center gap-2 border-b border-slate-200 px-5">
           <span className="flex h-7 w-7 items-center justify-center rounded-md bg-blue-600 text-sm font-bold text-white">
-            T
+            U
           </span>
-          <span className="text-base font-semibold text-slate-900">POC演示</span>
+          <span className="text-base font-semibold text-slate-900">UOB</span>
         </div>
         <nav className="flex flex-1 flex-col gap-1 p-3">
           {NAV_ITEMS.map((item) => (
@@ -41,21 +42,21 @@ export default async function DashboardLayout({ children }: { children: ReactNod
             </Link>
           ))}
         </nav>
-        <div className="border-t border-slate-200 px-5 py-3 text-xs text-slate-400">
+        {/* <div className="border-t border-slate-200 px-5 py-3 text-xs text-slate-400">
           工单协作
-        </div>
+        </div> */}
       </aside>
 
       <div className="flex min-w-0 flex-1 flex-col">
         <header className="flex h-14 items-center justify-between border-b border-slate-200 bg-white px-6">
-          <h1 className="text-sm font-medium text-slate-700">团队工单协作</h1>
+          <h1 className="text-sm font-medium text-slate-700"></h1>
           <div className="flex items-center gap-3">
-            <Link
+            {/* <Link
               href="/tickets/new"
               className="rounded-md bg-blue-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-blue-700"
             >
               新建工单
-            </Link>
+            </Link> */}
             <span className="text-sm text-slate-600">
               {user.name}
               <span className="ml-1 text-xs text-slate-400">

@@ -4,10 +4,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "TeamDesk · 团队工单协作",
+    default: "UOB Service",
     template: "%s · TeamDesk",
   },
-  description: "轻量级团队工单协作平台：工单流转、评论协作、看板视图与统计看板",
+  description: "UOB银行 服务",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
