@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export default async function LoginPage() {
   // 已登录就不再展示登录页
   if (await getCurrentUser()) {
-    redirect("/tickets");
+    redirect("/top");
   }
 
   return (
@@ -24,7 +24,7 @@ export default async function LoginPage() {
         <Card>
           <CardHeader title="登录 XXXXX" description="使用邮箱登录，或注册一个新账号" />
           <CardContent>
-            <AuthForm />
+            <AuthForm nextPath="/top" />
           </CardContent>
         </Card>
 
