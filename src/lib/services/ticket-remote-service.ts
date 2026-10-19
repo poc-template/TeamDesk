@@ -9,7 +9,7 @@ export class TicketRemoteService {
   }
 
   async list(query: TicketQuery): Promise<Paginated<TicketDetail>> {
-    const result = await this.apiClient.get<TicketDetail[]>("/tickets", query as any);
+    const result = await this.apiClient.get<TicketDetail[]>("base", "/tickets", query as any);
     return {
       items: result,
       total: result.length,
