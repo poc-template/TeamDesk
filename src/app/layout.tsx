@@ -5,7 +5,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: {
     default: "UOB Service",
-    template: "%s · TeamDesk",
+    template: "%s · UOB Service",
   },
   description: "UOB银行 服务",
 };

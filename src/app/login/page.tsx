@@ -16,13 +16,13 @@ export default async function LoginPage() {
       <div className="w-full max-w-sm space-y-5">
         <div className="flex items-center justify-center gap-2">
           <span className="flex h-8 w-8 items-center justify-center rounded-md bg-blue-600 text-sm font-bold text-white">
-            T
+            U
           </span>
-          <span className="text-lg font-semibold text-slate-900">TeamDesk</span>
+          <span className="text-lg font-semibold text-slate-900">UOB Service</span>
         </div>
 
         <Card>
-          <CardHeader title="登录 XXXXX" description="使用邮箱登录，或注册一个新账号" />
+          <CardHeader title="登录 UOB Service" description="使用邮箱登录，或注册一个新账号" />
           <CardContent>
             <AuthForm nextPath="/top" />
           </CardContent>

@@ -1,8 +1,8 @@
 {
-  "name": "teamdesk",
+  "name": "uobService",
   "version": "0.1.0",
   "private": true,
-  "description": "TeamDesk - 轻量级团队工单协作平台",
+  "description": "UOB Service",
   "license": "MIT",
   "engines": {
     "node": ">=20.10"
