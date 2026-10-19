@@ -3,7 +3,7 @@
  * 业务层拿到的就是已经收敛过类型的对象。
  */
 import { z } from "zod";
-import { TICKET_PRIORITIES, TICKET_STATUSES } from "./types";
+import { RISK_GRADES, TICKET_PRIORITIES, TICKET_STATUSES } from "./types";
 
 const optionalId = z.string().min(1).max(64).nullable().optional();
 
@@ -73,3 +73,11 @@ export const loginSchema = z.object({
   email: z.string().trim().email("邮箱格式不正确").max(120),
   password: z.string().min(1, "请输入密码").max(72),
 });
+
+/** OGR 审核提交：只需实体标识与选定的风险评级，其余为固定值由服务层填充 */
+export const ogrReviewSchema = z.object({
+  entityId: z.string().trim().min(1, "entityId 不能为空").max(64),
+  riskGrade: z.enum(RISK_GRADES),
+});
+
+export type OgrReviewPayload = z.infer<typeof ogrReviewSchema>;

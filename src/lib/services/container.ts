@@ -9,14 +9,16 @@ import { TagService } from "./tag-service";
 import { TicketService } from "./ticket-service";
 import { UserService } from "./user-service";
 
-import { TicketRemoteService as RemoteTicketService } from "./ticket-remote-service";
+import { TicketRemoteService } from "./ticket-remote-service";
+import { EntityRemoteService } from "./entity-remote-service";
 
 export interface Services {
   tickets: TicketService;
   tags: TagService;
   users: UserService;
   stats: StatsService;
-  remoteTickets: RemoteTicketService;
+  remoteTickets: TicketRemoteService;
+  remoteEntity: EntityRemoteService;
 }
 
 export function createServices(db: Db): Services {
@@ -30,7 +32,8 @@ export function createServices(db: Db): Services {
     tags: new TagService(tags),
     users,
     stats: new StatsService(new StatsRepository(db)),
-    remoteTickets: new RemoteTicketService(),
+    remoteTickets: new TicketRemoteService(),
+    remoteEntity: new EntityRemoteService(),
   };
 }
 
