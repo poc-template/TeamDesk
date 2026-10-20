@@ -4,23 +4,23 @@
  */
 import { createHmac, timingSafeEqual } from "node:crypto";
 
-export const SESSION_COOKIE = "teamdesk_session";
+export const SESSION_COOKIE = "UOB_SERVICE_session";
 export const SESSION_TTL_SECONDS = 7 * 24 * 60 * 60;
 
-const DEV_FALLBACK_SECRET = "teamdesk-local-dev-secret";
+const DEV_FALLBACK_SECRET = "uobService-local-dev-secret";
 
 let warnedAboutFallback = false;
 
 function getSecret(): string {
-  const secret = process.env.TEAMDESK_SESSION_SECRET;
+  const secret = process.env.UOB_SERVICE_SESSION_SECRET;
   if (secret && secret.length > 0) return secret;
 
   if (process.env.NODE_ENV === "production") {
-    throw new Error("生产环境必须配置 TEAMDESK_SESSION_SECRET");
+    throw new Error("生产环境必须配置 UOB_SERVICE_SESSION_SECRET");
   }
   if (!warnedAboutFallback) {
     warnedAboutFallback = true;
-    console.warn("[auth] 未配置 TEAMDESK_SESSION_SECRET，正在使用本地开发用默认密钥");
+    console.warn("[auth] 未配置 UOB_SERVICE_SESSION_SECRET，正在使用本地开发用默认密钥");
   }
   return DEV_FALLBACK_SECRET;
 }

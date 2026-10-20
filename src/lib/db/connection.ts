@@ -7,7 +7,7 @@ import { MIGRATIONS } from "./schema";
 export type Db = Database.Database;
 
 export interface DbOptions {
-  /** 指定数据库文件；缺省使用 TEAMDESK_DB_PATH 或 data/teamdesk.db */
+  /** 指定数据库文件；缺省使用 UOB_SERVICE_DB_PATH 或 data/uobService.db */
   filename?: string;
   /** true 时使用内存库，测试场景专用 */
   memory?: boolean;
@@ -15,7 +15,7 @@ export interface DbOptions {
   migrate?: boolean;
 }
 
-const DEFAULT_DB_FILE = path.join(process.cwd(), "data", "teamdesk.db");
+const DEFAULT_DB_FILE = path.join(process.cwd(), "data", "uobService.db");
 
 let cached: Db | null = null;
 
@@ -57,7 +57,7 @@ export function runMigrations(db: Db, migrations: readonly Migration[] = MIGRATI
 export function createDb(options: DbOptions = {}): Db {
   const filename = options.memory
     ? ":memory:"
-    : options.filename ?? process.env.TEAMDESK_DB_PATH ?? DEFAULT_DB_FILE;
+    : options.filename ?? process.env.UOB_SERVICE_DB_PATH ?? DEFAULT_DB_FILE;
 
   if (filename !== ":memory:") {
     fs.mkdirSync(path.dirname(filename), { recursive: true });

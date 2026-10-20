@@ -70,7 +70,7 @@ Milestone 表单里：起始 Commit 与结束 Commit 填短哈希（或完整哈
 - **说明**：
   会话采用自签令牌：userId + 过期时间 + HMAC-SHA256 签名，校验用 timingSafeEqual
   做定长比较，Cookie 固定 HttpOnly + SameSite=Lax，生产环境强制 secure；未配置
-  TEAMDESK_SESSION_SECRET 时生产环境直接启动失败、开发环境告警后用本地默认密钥。
+  UOB_SERVICE_SESSION_SECRET 时生产环境直接启动失败、开发环境告警后用本地默认密钥。
   登录守卫刻意不用 middleware（Edge 运行时加载不了原生模块），放在 (dashboard) 分组
   的 layout 里统一跳转。用户服务负责注册（邮箱去重报 CONFLICT）与登录（邮箱不存在与
   密码错误返回同一句提示，避免账号枚举），toPublic 一律剥除密码哈希。接口侧：所有

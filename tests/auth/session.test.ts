@@ -5,7 +5,7 @@ const NOW = 1_800_000_000_000;
 
 describe("会话令牌", () => {
   afterEach(() => {
-    delete process.env.TEAMDESK_SESSION_SECRET;
+    delete process.env.UOB_SERVICE_SESSION_SECRET;
   });
 
   it("签发的令牌可以验回 userId", () => {
@@ -29,20 +29,20 @@ describe("会话令牌", () => {
   });
 
   it("不同密钥签出的令牌互不可认", () => {
-    process.env.TEAMDESK_SESSION_SECRET = "secret-a";
+    process.env.UOB_SERVICE_SESSION_SECRET = "secret-a";
     const token = signSession("user-1", NOW);
 
-    process.env.TEAMDESK_SESSION_SECRET = "secret-b";
+    process.env.UOB_SERVICE_SESSION_SECRET = "secret-b";
     expect(verifySession(token, NOW)).toBeNull();
   });
 
   it("生产环境缺少密钥时直接抛错，不使用默认密钥", () => {
     // NODE_ENV 在类型上是只读的，用 vi.stubEnv 改
     vi.stubEnv("NODE_ENV", "production");
-    vi.stubEnv("TEAMDESK_SESSION_SECRET", undefined);
+    vi.stubEnv("UOB_SERVICE_SESSION_SECRET", undefined);
 
     try {
-      expect(() => signSession("user-1", NOW)).toThrow(/TEAMDESK_SESSION_SECRET/);
+      expect(() => signSession("user-1", NOW)).toThrow(/UOB_SERVICE_SESSION_SECRET/);
     } finally {
       vi.unstubAllEnvs();
     }

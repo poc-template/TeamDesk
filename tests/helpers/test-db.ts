@@ -18,7 +18,7 @@ export interface MakeUserOptions {
 
 export function makeUser(db: Db, options: MakeUserOptions = {}): UserRecord {
   return new UserRepository(db).create({
-    email: options.email ?? `user-${randomUUID()}@teamdesk.test`,
+    email: options.email ?? `user-${randomUUID()}@uob.dev`,
     name: options.name ?? "测试用户",
     passwordHash: options.passwordHash ?? "scrypt$00$00",
     role: options.role ?? "member",

@@ -1,4 +1,4 @@
-# TeamDesk
+# uobService
 
 轻量级团队工单协作平台。用 Next.js 15 App Router + TypeScript + SQLite 实现的全栈应用，覆盖工单的创建、流转、评论、看板视图与统计看板，并内置用户体系与接口鉴权。
 
@@ -91,8 +91,8 @@ npm run verify       # 类型检查 + lint + 敏感信息自查 + 66 个测试
 
 | 账号 | 密码 | 角色 |
 | --- | --- | --- |
-| admin@teamdesk.dev | teamdesk-admin | admin |
-| lily@teamdesk.dev | teamdesk-member | member |
+| admin@uob.dev | uobService-admin | admin |
+| lily@uob.dev | uobService-member | member |
 
 > 仅用于本地演示，请勿在任何真实环境使用这些凭据。
 
@@ -146,12 +146,12 @@ schema_migrations version, name, applied_at
 ## 部署
 
 ```bash
-docker build -t teamdesk .
-docker run -p 3000:3000 -v teamdesk-data:/app/data teamdesk
+docker build -t uobService .
+docker run -p 3000:3000 -v uobService-data:/app/data uobService
 ```
 
 容器启动时会先执行 `npm run db:migrate`，数据落在 `/app/data` 卷里。
-生产环境必须设置 `TEAMDESK_SESSION_SECRET`，否则应用拒绝启动。
+生产环境必须设置 `UOB_SERVICE_SESSION_SECRET`，否则应用拒绝启动。
 
 ## 开发里程碑
 

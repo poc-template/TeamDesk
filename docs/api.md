@@ -19,7 +19,7 @@
 
 ```jsonc
 // 请求
-{ "email": "lily@teamdesk.dev", "name": "李莉", "password": "至少8位" }
+{ "email": "lily@uob.dev", "name": "李莉", "password": "至少8位" }
 
 // 响应 200
 { "ok": true, "data": { "id": "...", "email": "...", "name": "李莉", "role": "member", "createdAt": "..." } }
@@ -29,7 +29,7 @@
 
 ### POST /api/auth/login
 
-登录成功后写入 `HttpOnly` Cookie `teamdesk_session`（7 天有效），响应体不含密码哈希。
+登录成功后写入 `HttpOnly` Cookie `UOB_SERVICE_session`（7 天有效），响应体不含密码哈希。
 邮箱不存在与密码错误返回同一句提示，避免账号枚举。
 
 ### POST /api/auth/logout

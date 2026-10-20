@@ -3,13 +3,13 @@ import { hashPassword, verifyPassword } from "@/lib/auth/password";
 
 describe("密码哈希", () => {
   it("同一密码两次哈希结果不同（随机盐）", () => {
-    expect(hashPassword("teamdesk")).not.toBe(hashPassword("teamdesk"));
+    expect(hashPassword("uobService")).not.toBe(hashPassword("uobService"));
   });
 
   it("正确密码校验通过，错误密码被拒绝", () => {
-    const stored = hashPassword("teamdesk-admin");
-    expect(verifyPassword("teamdesk-admin", stored)).toBe(true);
-    expect(verifyPassword("teamdesk-admin ", stored)).toBe(false);
+    const stored = hashPassword("uobService-admin");
+    expect(verifyPassword("uobService-admin", stored)).toBe(true);
+    expect(verifyPassword("uobService-admin ", stored)).toBe(false);
     expect(verifyPassword("wrong", stored)).toBe(false);
   });
 

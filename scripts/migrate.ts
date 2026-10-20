@@ -6,7 +6,7 @@ import { createDb, runMigrations } from "../src/lib/db/connection";
 import { MIGRATIONS, SCHEMA_VERSION } from "../src/lib/db/schema";
 
 function main(): void {
-  const target = process.env.TEAMDESK_DB_PATH ?? "./data/teamdesk.db";
+  const target = process.env.UOB_SERVICE_DB_PATH ?? "./data/uobService.db";
   // 关闭建库时的自动迁移，让本脚本独占迁移执行与日志输出
   const db = createDb({ migrate: false });
   const applied = runMigrations(db);

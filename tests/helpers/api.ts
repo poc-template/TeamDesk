@@ -1,6 +1,6 @@
 /**
  * 接口集成测试的公共装配：把数据库指向内存库，然后动态加载路由模块，
- * 保证 TEAMDESK_DB_PATH 在 getDb() 首次调用之前生效。
+ * 保证 UOB_SERVICE_DB_PATH 在 getDb() 首次调用之前生效。
  */
 import { NextRequest } from "next/server";
 import type { PublicUser, TagRecord } from "@/lib/domain/types";
@@ -19,22 +19,22 @@ export interface ApiHarness {
 }
 
 export async function setupApi(): Promise<ApiHarness> {
-  process.env.TEAMDESK_DB_PATH = ":memory:";
+  process.env.UOB_SERVICE_DB_PATH = ":memory:";
 
   const { getDb } = await import("@/lib/db/connection");
   const { createServices } = await import("@/lib/services/container");
   const services = createServices(getDb());
 
   const admin = services.users.register({
-    email: "admin@teamdesk.test",
+    email: "admin@uobService.test",
     name: "管理员",
-    password: "teamdesk-admin",
+    password: "uobService-admin",
     role: "admin",
   });
   const member = services.users.register({
-    email: "member@teamdesk.test",
+    email: "member@uobService.test",
     name: "成员",
-    password: "teamdesk-member",
+    password: "uobService-member",
   });
   const tag = services.tags.create("登录", "#2563eb");
 

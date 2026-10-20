@@ -22,7 +22,7 @@ FROM node:20-bookworm-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
-ENV TEAMDESK_DB_PATH=/app/data/teamdesk.db
+ENV UOB_SERVICE_DB_PATH=/app/data/uobService.db
 
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/node_modules ./node_modules

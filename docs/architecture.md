@@ -54,7 +54,7 @@ better-sqlite3。守卫放在 `(dashboard)/layout.tsx`，所有业务页共用�
 
 **会话为什么不引第三方库**：只需要「签发 + 校验」两件事，HMAC-SHA256 签名足够。
 Cookie 固定 `HttpOnly` + `SameSite=Lax`，生产环境强制 `secure`；未配置
-`TEAMDESK_SESSION_SECRET` 时生产环境直接启动失败。
+`UOB_SERVICE_SESSION_SECRET` 时生产环境直接启动失败。
 
 ## 状态机
 
