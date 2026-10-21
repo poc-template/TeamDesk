@@ -4,7 +4,7 @@ import { TicketTable } from "@/components/tickets/ticket-table";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Pagination } from "@/components/ui/pagination";
 import { TICKET_PRIORITIES, TICKET_STATUSES } from "@/lib/domain/types";
-import type { TicketPriority, TicketQuery, TicketStatus, EntityQuery, EntityDetail, Paginated } from "@/lib/domain/types";
+import type { TicketPriority, TicketQuery, TicketStatus } from "@/lib/domain/types";
 import { getServices } from "@/lib/services/container";
 
 export const dynamic = "force-dynamic";
@@ -68,9 +68,6 @@ export default async function TicketsPage({ searchParams }: PageProps) {
   // }
   const users = services.users.list();
   const tags = services.tags.list();
-
-  console.log("Local tickets:", result);
-  // console.log("Remote entities:", resultRemote);
 
   return (
     <div className="space-y-5">

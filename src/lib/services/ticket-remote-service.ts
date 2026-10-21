@@ -9,7 +9,14 @@ export class TicketRemoteService {
   }
 
   async list(query: TicketQuery): Promise<Paginated<TicketDetail>> {
-    const result = await this.apiClient.get<TicketDetail[]>("base", "/tickets", query as any);
+    const params = new URLSearchParams();
+    for (const [key, value] of Object.entries(query)) {
+      if (value === undefined || value === null) continue;
+      params.set(key, String(value));
+    }
+    const qs = params.toString();
+    const path = qs ? `/tickets?${qs}` : "/tickets";
+    const result = await this.apiClient.get<TicketDetail[]>("base", path);
     return {
       items: result,
       total: result.length,
