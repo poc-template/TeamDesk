@@ -18,10 +18,10 @@ interface SeedUser {
 }
 
 const SEED_USERS: SeedUser[] = [
-  { email: "admin@poc.dev", name: "周维", password: "test", role: "admin" },
-  { email: "lily@poc.dev", name: "李莉", password: "test", role: "member" },
-  { email: "chenhao@poc.dev", name: "陈昊", password: "test", role: "member" },
-  { email: "wangmin@poc.dev", name: "王敏", password: "test", role: "member" },
+  { email: "admin@poc.dev", name: "Wei Zhou", password: "test", role: "admin" },
+  { email: "lily@poc.dev", name: "Lily Li", password: "test", role: "member" },
+  { email: "chenhao@poc.dev", name: "Chenhao Chen", password: "test", role: "member" },
+  { email: "wangmin@poc.dev", name: "Wangmin Wang", password: "test", role: "member" },
 ];
 
 const SEED_TAGS: { name: string; color: string }[] = [

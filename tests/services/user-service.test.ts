@@ -14,7 +14,7 @@ describe("UserService", () => {
     const service = makeService(createTestDb());
     const user = service.register({
       email: "lily@uob.dev",
-      name: "李莉",
+      name: "Lily Li",
       password: "uobService-member",
     });
 

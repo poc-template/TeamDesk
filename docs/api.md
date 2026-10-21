@@ -19,10 +19,10 @@
 
 ```jsonc
 // 请求
-{ "email": "lily@uob.dev", "name": "李莉", "password": "至少8位" }
+{ "email": "lily@uob.dev", "name": "Lily Li", "password": "至少8位" }
 
 // 响应 200
-{ "ok": true, "data": { "id": "...", "email": "...", "name": "李莉", "role": "member", "createdAt": "..." } }
+{ "ok": true, "data": { "id": "...", "email": "...", "name": "Lily Li", "role": "member", "createdAt": "..." } }
 ```
 
 邮箱已注册返回 `409 CONFLICT`。
@@ -129,7 +129,7 @@
     "unassigned": 3,
     "trend": [{ "day": "2026-10-08", "total": 1 }],
     "averageResolutionHours": 18.4,
-    "assigneeLoad": [{ "userId": "...", "name": "王敏", "openCount": 3 }]
+    "assigneeLoad": [{ "userId": "...", "name": "Wangmin Wang", "openCount": 3 }]
   }
 }
 ```

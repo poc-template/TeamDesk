@@ -7,7 +7,7 @@ describe("UserRepository", () => {
     const db = createTestDb();
     const user = new UserRepository(db).create({
       email: "  Admin@Uob.DEV ",
-      name: "周维",
+      name: "Wei Zhou",
       passwordHash: "scrypt$aa$bb",
       role: "admin",
     });
@@ -20,7 +20,7 @@ describe("UserRepository", () => {
     const db = createTestDb();
     const user = new UserRepository(db).create({
       email: "someone@uob.dev",
-      name: "李莉",
+      name: "Lily Li",
       passwordHash: "scrypt$aa$bb",
     });
 
@@ -30,9 +30,9 @@ describe("UserRepository", () => {
   it("按邮箱查询忽略大小写", () => {
     const db = createTestDb();
     const repo = new UserRepository(db);
-    repo.create({ email: "lily@uob.dev", name: "李莉", passwordHash: "scrypt$aa$bb" });
+    repo.create({ email: "lily@uob.dev", name: "Lily Li", passwordHash: "scrypt$aa$bb" });
 
-    expect(repo.findByEmail("LILY@uob.dev")?.name).toBe("李莉");
+    expect(repo.findByEmail("LILY@uob.dev")?.name).toBe("Lily Li");
     expect(repo.exists("lily@uob.dev")).toBe(true);
     expect(repo.exists("nobody@uob.dev")).toBe(false);
   });

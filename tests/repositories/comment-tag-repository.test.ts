@@ -7,7 +7,7 @@ import { createTestDb, makeUser } from "../helpers/test-db";
 describe("CommentRepository", () => {
   it("评论列表带出作者信息并按时间升序", () => {
     const db = createTestDb();
-    const author = makeUser(db, { name: "陈昊" });
+    const author = makeUser(db, { name: "Chenhao Chen" });
     const ticket = new TicketRepository(db).create({ title: "工单", reporterId: author.id });
     const comments = new CommentRepository(db);
 
@@ -16,7 +16,7 @@ describe("CommentRepository", () => {
 
     const list = comments.listByTicket(ticket.id);
     expect(list.map((item) => item.body)).toEqual(["第一条", "第二条"]);
-    expect(list[0]?.author?.name).toBe("陈昊");
+    expect(list[0]?.author?.name).toBe("Chenhao Chen");
     expect(list[0]?.author && "passwordHash" in list[0].author).toBe(false);
   });
 
