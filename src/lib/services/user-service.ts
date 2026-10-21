@@ -27,7 +27,7 @@ export class UserService {
   register(input: RegisterInput): PublicUser {
     const email = input.email.trim().toLowerCase();
     if (this.users.findByEmail(email)) {
-      throw AppError.conflict("该邮箱已注册");
+      throw AppError.conflict("This email is already registered");
     }
 
     const created = this.users.create({
@@ -43,7 +43,7 @@ export class UserService {
   authenticate(email: string, password: string): UserRecord {
     const user = this.users.findByEmail(email);
     if (!user || !verifyPassword(password, user.passwordHash)) {
-      throw AppError.unauthorized("邮箱或密码不正确");
+      throw AppError.unauthorized("Incorrect email or password");
     }
     return user;
   }

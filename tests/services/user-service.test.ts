@@ -37,7 +37,7 @@ describe("UserService", () => {
     service.register({ email: "a@uob.dev", name: "甲", password: "password123" });
 
     expect(service.authenticate("a@uob.dev", "password123").email).toBe("a@uob.dev");
-    expect(() => service.authenticate("a@uob.dev", "wrong-password")).toThrow(/邮箱或密码/);
+    expect(() => service.authenticate("a@uob.dev", "wrong-password")).toThrow(/Incorrect email or password/);
   });
 
   it("邮箱不存在与密码错误返回同一句提示，避免账号枚举", () => {

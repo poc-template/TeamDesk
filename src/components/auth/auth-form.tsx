@@ -44,19 +44,19 @@ export function AuthForm({ nextPath = "/tickets" }: { nextPath?: string }) {
           onClick={() => setMode("login")}
           className={`flex-1 rounded px-3 py-1.5 ${mode === "login" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500"}`}
         >
-          登录
+          Sign in
         </button>
         <button
           type="button"
           onClick={() => setMode("register")}
           className={`flex-1 rounded px-3 py-1.5 ${mode === "register" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500"}`}
         >
-          注册
+          Register
         </button>
       </div>
 
       <label className="block space-y-1">
-        <span className="text-sm font-medium text-slate-700">邮箱</span>
+        <span className="text-sm font-medium text-slate-700">Email</span>
         <input
           type="email"
           value={email}
@@ -68,7 +68,7 @@ export function AuthForm({ nextPath = "/tickets" }: { nextPath?: string }) {
 
       {mode === "register" ? (
         <label className="block space-y-1">
-          <span className="text-sm font-medium text-slate-700">姓名</span>
+          <span className="text-sm font-medium text-slate-700">Name</span>
           <input
             value={name}
             onChange={(event) => setName(event.target.value)}
@@ -78,7 +78,7 @@ export function AuthForm({ nextPath = "/tickets" }: { nextPath?: string }) {
       ) : null}
 
       <label className="block space-y-1">
-        <span className="text-sm font-medium text-slate-700">密码</span>
+        <span className="text-sm font-medium text-slate-700">Password</span>
         <input
           type="password"
           value={password}
@@ -87,14 +87,14 @@ export function AuthForm({ nextPath = "/tickets" }: { nextPath?: string }) {
           className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm focus:border-blue-500"
         />
         {mode === "register" ? (
-          <span className="text-xs text-slate-400">至少 8 位</span>
+          <span className="text-xs text-slate-400">At least 8 characters</span>
         ) : null}
       </label>
 
       {error ? <p className="text-sm text-red-600">{error}</p> : null}
 
       <Button className="w-full" disabled={submitting} onClick={submit}>
-        {submitting ? "处理中…" : mode === "login" ? "登录" : "注册并登录"}
+        {submitting ? "Processing…" : mode === "login" ? "Sign in" : "Register & sign in"}
       </Button>
     </div>
   );

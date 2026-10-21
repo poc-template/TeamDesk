@@ -10,7 +10,7 @@ const NAV_ITEMS = [
   // { href: "/board", label: "看板" },
   // { href: "/stats", label: "统计" },
   // { href: "/tickets/new", label: "新建工单" },
-  { href: "/pending-review", label: "待审查一览" },
+  { href: "/pending-review", label: "Pending Review" },
 ];
 
 /**
@@ -61,7 +61,7 @@ export default async function DashboardLayout({ children }: { children: ReactNod
             <span className="text-sm text-slate-600">
               {user.name}
               <span className="ml-1 text-xs text-slate-400">
-                {user.role === "admin" ? "管理员" : "成员"}
+                {user.role === "admin" ? "Admin" : "Member"}
               </span>
             </span>
             <LogoutButton />

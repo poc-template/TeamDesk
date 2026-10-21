@@ -53,7 +53,7 @@ function OgrBadge({ flag }: { flag: string }) {
 function formatDate(dateStr: string | null | undefined): string {
   if (!dateStr) return "—";
   try {
-    return new Date(dateStr).toLocaleDateString("zh-CN", {
+    return new Date(dateStr).toLocaleDateString("en-CA", {
       year: "numeric",
       month: "2-digit",
       day: "2-digit",
@@ -93,7 +93,7 @@ export default async function PendingReviewPage({ searchParams }: PageProps) {
     });
     pendingReviewList = entityResult.pendingReviewList;
   } catch (error) {
-    console.warn("远程实体接口调用失败:", error);
+    console.warn("Remote entity API call failed:", error);
   }
 
   // 关键词筛选：匹配 entityId 或 entityName
@@ -146,7 +146,7 @@ export default async function PendingReviewPage({ searchParams }: PageProps) {
   return (
     <div className="space-y-5">
       <Card>
-        <CardHeader title="筛选条件" description="组合条件后点击筛选，条件会写进地址栏便于分享" />
+        <CardHeader title="Filters" description="Combine conditions and click Filter; they are written to the URL for easy sharing" />
         <CardContent>
           <PendingReviewFilters
             defaultValues={{ keyword, riskCode, ogrFlag, sort, order, pageSize: String(pageSize) }}
@@ -155,12 +155,12 @@ export default async function PendingReviewPage({ searchParams }: PageProps) {
       </Card>
 
       <Card>
-        <CardHeader title={`待审查一览（${total}）`} />
+        <CardHeader title={`Pending Review (${total})`} />
         <CardContent>
           {paged.length === 0 ? (
             <EmptyState
-              title="暂无待审查项目"
-              description="当前没有需要审核的实体，请稍后再查看"
+              title="No pending review items"
+              description="There are currently no entities to review. Please check back later."
             />
           ) : (
             <div className="overflow-x-auto">
@@ -172,7 +172,7 @@ export default async function PendingReviewPage({ searchParams }: PageProps) {
                     <th className="px-3 py-2 font-medium">Risk Code</th>
                     <th className="px-3 py-2 font-medium">NRD Date</th>
                     <th className="px-3 py-2 font-medium">OGR Flag</th>
-                    <th className="px-5 py-2 font-medium">操作</th>
+                    <th className="px-5 py-2 font-medium">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">

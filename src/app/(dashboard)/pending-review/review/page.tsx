@@ -29,11 +29,11 @@ export default async function ReviewPage({ searchParams }: PageProps) {
 
   return (
     <div className="space-y-5">
-      <div className="text-sm text-slate-500">待审查一览 / 审核</div>
+      <div className="text-sm text-slate-500">Pending Review / Review</div>
       <Card>
         <CardHeader
-          title="审核"
-          description="确认实体信息并选择风险评级，点击审核提交处理结果"
+          title="Review"
+          description="Confirm the entity details and select a risk grade, then click Review to submit the result"
         />
         <CardContent>
           <ReviewForm item={item} back={back} />

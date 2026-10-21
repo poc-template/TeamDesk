@@ -22,7 +22,7 @@ export default async function LoginPage() {
         </div>
 
         <Card>
-          <CardHeader title="登录 UOB Service" description="使用邮箱登录，或注册一个新账号" />
+          <CardHeader title="Sign in to UOB Service" description="Sign in with your email, or register a new account" />
           <CardContent>
             <AuthForm nextPath="/top" />
           </CardContent>

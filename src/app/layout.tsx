@@ -7,12 +7,12 @@ export const metadata: Metadata = {
     default: "UOB Service",
     template: "%s · UOB Service",
   },
-  description: "UOB银行 服务",
+  description: "UOB Bank Service",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="zh-CN">
+    <html lang="en">
       <body className="min-h-full antialiased">{children}</body>
     </html>
   );

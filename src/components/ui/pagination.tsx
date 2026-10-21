@@ -19,7 +19,7 @@ export function Pagination({ page, pageSize, total, filters, basePath }: Paginat
   return (
     <nav className="flex items-center justify-between gap-3 border-t border-slate-200 px-5 py-3 text-sm">
       <span className="text-slate-500">
-        共 {total} 条 · 第 {page} / {totalPages} 页
+        {total} items · Page {page} of {totalPages}
       </span>
       <div className="flex items-center gap-2">
         {page > 1 ? (
@@ -27,11 +27,11 @@ export function Pagination({ page, pageSize, total, filters, basePath }: Paginat
             className="rounded-md bg-white px-3 py-1.5 text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50"
             href={hrefFor(page - 1)}
           >
-            上一页
+            Previous
           </Link>
         ) : (
           <span className="rounded-md bg-slate-50 px-3 py-1.5 text-slate-400 ring-1 ring-slate-200">
-            上一页
+            Previous
           </span>
         )}
         {page < totalPages ? (
@@ -39,11 +39,11 @@ export function Pagination({ page, pageSize, total, filters, basePath }: Paginat
             className="rounded-md bg-white px-3 py-1.5 text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50"
             href={hrefFor(page + 1)}
           >
-            下一页
+            Next
           </Link>
         ) : (
           <span className="rounded-md bg-slate-50 px-3 py-1.5 text-slate-400 ring-1 ring-slate-200">
-            下一页
+            Next
           </span>
         )}
       </div>

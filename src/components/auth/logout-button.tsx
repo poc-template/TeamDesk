@@ -26,7 +26,7 @@ export function LogoutButton() {
       disabled={pending}
       className="rounded-md px-3 py-1.5 text-sm text-slate-600 ring-1 ring-slate-300 hover:bg-slate-50 disabled:opacity-60"
     >
-      {pending ? "退出中…" : "退出登录"}
+      {pending ? "Signing out…" : "Sign out"}
     </button>
   );
 }

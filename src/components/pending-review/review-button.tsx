@@ -24,7 +24,7 @@ export function ReviewButton({ item, back }: { item: PendingReviewItem; back?: s
         disabled
         className="cursor-not-allowed rounded-md bg-slate-200 px-3 py-1 text-xs font-medium text-slate-400"
       >
-        审核
+        Review
       </button>
     );
   }
@@ -34,7 +34,7 @@ export function ReviewButton({ item, back }: { item: PendingReviewItem; back?: s
       href={href}
       className="inline-block rounded-md bg-blue-600 px-3 py-1 text-xs font-medium text-white hover:bg-blue-700"
     >
-      审核
+      Review
     </Link>
   );
 }

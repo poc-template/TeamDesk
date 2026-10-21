@@ -40,7 +40,7 @@ export function apiSend<T>(path: string, method: "POST" | "PATCH" | "DELETE", pa
   });
 }
 
-/** 把未知错误收敛成一句可展示的中文提示 */
+/** Collapse an unknown error into a single displayable message */
 export function toErrorMessage(error: unknown): string {
   if (error instanceof ApiClientError) {
     const fieldErrors = (error.details as { fieldErrors?: Record<string, string[]> } | undefined)
@@ -49,5 +49,5 @@ export function toErrorMessage(error: unknown): string {
     return firstFieldError ?? error.message;
   }
   if (error instanceof Error) return error.message;
-  return "操作失败，请稍后重试";
+  return "Operation failed. Please try again later.";
 }

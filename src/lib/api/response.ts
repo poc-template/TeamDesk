@@ -24,10 +24,10 @@ export function fail(error: unknown): NextResponse<ApiFailure> {
     );
   }
 
-  // 非预期异常不把堆栈和内部信息带出去，只在服务端留痕
-  console.error("[api] 未处理异常", error);
+  // Unexpected exceptions do not leak stack traces or internals; only logged server-side
+  console.error("[api] Unhandled exception", error);
   return NextResponse.json(
-    { ok: false, error: { code: "INTERNAL", message: "服务器内部错误" } },
+    { ok: false, error: { code: "INTERNAL", message: "Internal server error" } },
     { status: 500 },
   );
 }

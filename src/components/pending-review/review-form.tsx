@@ -15,9 +15,9 @@ export interface ReviewItem {
 }
 
 const RISK_LABELS: Record<RiskGrade, string> = {
-  HIGH: "高",
-  MEDIUM: "中",
-  LOW: "低",
+  HIGH: "High",
+  MEDIUM: "Medium",
+  LOW: "Low",
 };
 
 const FIELD_CLASS =
@@ -30,7 +30,7 @@ function displayDate(value: string): string {
   if (!value) return "—";
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return value;
-  return date.toLocaleDateString("zh-CN", { year: "numeric", month: "2-digit", day: "2-digit" });
+  return date.toLocaleDateString("en-CA", { year: "numeric", month: "2-digit", day: "2-digit" });
 }
 
 export function ReviewForm({ item, back }: { item: ReviewItem; back?: string }) {
@@ -89,7 +89,7 @@ export function ReviewForm({ item, back }: { item: ReviewItem; back?: string }) 
         >
           {RISK_GRADES.map((grade) => (
             <option key={grade} value={grade}>
-              {grade}（{RISK_LABELS[grade]}）
+              {grade} ({RISK_LABELS[grade]})
             </option>
           ))}
         </select>
@@ -99,10 +99,10 @@ export function ReviewForm({ item, back }: { item: ReviewItem; back?: string }) 
 
       <div className="flex items-center gap-2 pt-2">
         <Button disabled={submitting || !item.entityId} onClick={submit}>
-          {submitting ? "审核中…" : "审核"}
+          {submitting ? "Reviewing…" : "Review"}
         </Button>
         <Button variant="secondary" onClick={() => router.push(listUrl)}>
-          返回
+          Back
         </Button>
       </div>
     </div>
